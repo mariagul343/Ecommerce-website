@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tanzeela Ameer- E-Commerce Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="#" class="logo" onclick="showSection('home')">
+                Tanzeela<span>Ameer</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="navbar" id="navbar">
+
+                <button
+                    class="nav-link active"
+                    id="homeNav"
+                    onclick="showSection('home')">
+                    Home
+                </button>
+
+                <button
+                    class="nav-link"
+                    id="productsNav"
+                    onclick="showSection('products')">
+                    Products
+                </button>
+
+                <button
+                    class="nav-link"
+                    id="cartNav"
+                    onclick="showSection('cart')">
+                    Cart
+                    <span id="cartCount">0</span>
+                </button>
+
+                <button
+                    class="nav-link"
+                    id="contactNav"
+                    onclick="showSection('contact')">
+                    Contact
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    
+
+    <main>
+
+
+        
+
+        <section id="home" class="page-section active-section">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        NEW COLLECTION 2026
+                    </span>
+
+                    <h1>
+                        Everything You Need
+                        <span>In One Place.</span>
+                    </h1>
+
+                    <p>
+                        Discover premium electronics, fashionable products,
+                        beauty essentials and stylish accessories at amazing prices.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <button
+                            class="primary-btn"
+                            onclick="showSection('products')">
+                            Shop Now
+                        </button>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="showSection('contact')">
+                            Contact Us
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-image">
+
+                    <div class="hero-circle">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!
+
+            <div class="container home-categories">
+
+                <div class="section-heading">
+
+                    <span>SHOP BY CATEGORY</span>
+
+                    <h2>
+                        Explore Our Collections
+                    </h2>
+
+                </div>
+
+
+                <div class="category-grid">
+
+                    <div
+                        class="category-box"
+                        onclick="openCategory('Electronics')">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+
+                        <h3>
+                            Electronics
+                        </h3>
+
+                        <p>
+                            Phones, laptops, cameras, headphones and more.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="category-box"
+                        onclick="openCategory('Fashion')">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+
+                        <h3>
+                            Fashion
+                        </h3>
+
+                        <p>
+                            Dresses, shoes, bags, makeup and beauty products.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="category-box"
+                        onclick="openCategory('Accessories')">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+
+                        <h3>
+                            Accessories
+                        </h3>
+
+                        <p>
+                            Rings, earrings, jewelry, watches and more.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    
+
+        <section id="products" class="page-section">
+
+            <div class="container products-page">
+
+                <div class="section-heading center">
+
+                    <span>OUR COLLECTION</span>
+
+                    <h2>
+                        Featured Products
+                    </h2>
+
+                    <p>
+                        Find your favorite products from our collection.
+                    </p>
+
+                </div>
+
+
+                <!-- CATEGORY FILTER -->
+
+                <div class="category-buttons">
+
+                    <button
+                        class="category-btn active"
+                        onclick="filterCategory('All', this)">
+                        All
+                    </button>
+
+                    <button
+                        class="category-btn"
+                        onclick="filterCategory('Electronics', this)">
+                        Electronics
+                    </button>
+
+                    <button
+                        class="category-btn"
+                        onclick="filterCategory('Fashion', this)">
+                        Fashion
+                    </button>
+
+                    <button
+                        class="category-btn"
+                        onclick="filterCategory('Accessories', this)">
+                        Accessories
+                    </button>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search products...">
+
+                    <button onclick="searchProducts()">
+                        <i class="fa-solid fa-search"></i>
+                        Search
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT GRID -->
+
+                <div
+                    class="products-grid"
+                    id="productsGrid">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+
+        <section id="cart" class="page-section">
+
+            <div class="container cart-page">
+
+                <div class="section-heading center">
+
+                    <span>YOUR SHOPPING BAG</span>
+
+                    <h2>
+                        Shopping Cart
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="cartItems"
+                    class="cart-items">
+                </div>
+
+
+                <div class="cart-summary">
+
+                    <div>
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="cartTotal">
+                            Rs. 0
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong>
+                            Free
+                        </strong>
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="total-row">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="finalTotal">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="checkout-btn"
+                        onclick="checkout()">
+
+                        Proceed to Checkout
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+
+        <section id="contact" class="page-section">
+
+            <div class="container contact-page">
+
+                <div class="section-heading center">
+
+                    <span>GET IN TOUCH</span>
+
+                    <h2>
+                        Contact Us
+                    </h2>
+
+                    <p>
+                        Have a question? Send us a message.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-wrapper">
+
+
+                    <div class="contact-info">
+
+                        <h3>
+                            Let's Talk
+                        </h3>
+
+                        <p>
+                            Our team is always ready to help you
+                            with your questions and orders.
+                        </p>
+
+
+                        <div class="info-item">
+
+                            <span>
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Email
+                                </strong>
+
+                                <p>
+                                    support@Tanzeela Ameer.com
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Phone
+                                </strong>
+
+                                <p>
+                                    +92 300 1234567
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Address
+                                </strong>
+
+                                <p>
+                                    Islamabad, Pakistan
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    
+
+                    <form
+                        class="contact-form"
+                        id="contactForm">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Enter your name"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Enter your email"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                id="subject"
+                                placeholder="Enter subject"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                rows="6"
+                                placeholder="Write your message..."
+                                required></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="#"
+                    class="logo"
+                    onclick="showSection('home')">
+                    Tanzeela<span>Ameer</span>
+                </a>
+
+                <p>
+                    Your modern destination for electronics,
+                    fashion and accessories.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <button onclick="showSection('home')">
+                    Home
+                </button>
+
+                <button onclick="showSection('products')">
+                    Products
+                </button>
+
+                <button onclick="showSection('cart')">
+                    Cart
+                </button>
+
+                <button onclick="showSection('contact')">
+                    Contact
+                </button>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>
+                    Categories
+                </h4>
+
+                <button onclick="openCategory('Electronics')">
+                    Electronics
+                </button>
+
+                <button onclick="openCategory('Fashion')">
+                    Fashion
+                </button>
+
+                <button onclick="openCategory('Accessories')">
+                    Accessories
+                </button>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h4>
+                    Follow Us
+                </h4>
+
+                <div>
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Tanzeela Ameer. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
