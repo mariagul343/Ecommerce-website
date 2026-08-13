@@ -4,7 +4,7 @@ const products = [
 
     {
         id: 1,
-        name: "iPhone 15 Pro Max",
+        name:  "iPhone 15 Pro Max - Featured",
         category: "Electronics",
         price: 389999,
          image: "images/iPhone 15 pro max.jpg",
